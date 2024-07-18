@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .bg-vscodedark {
+    background-color: #1e1e1e;
+  }
+  .thumbnail-img {
+    width: 650px;
+    height: 250px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    box-shadow: 4px 5px 12px black;
+    transition: all 0.2s;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover;
+    &:hover {
+      transform: translate(4px, 5pz);
+      box-shadow: none;
+    }
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+hr {
+  height: 2px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background-color: #9b9a9a;
+}
+
+/* リストの設定 */
+/* aside nav ol {
+  margin-top: 5px;
+} */
+
+/* 行間設定 */
+p {
+  margin: 15px 0;
+}
+
+div .sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+// a[target] {
+//   color: #0004ff;
+// }
+
+// a[target]:hover {
+//   text-decoration: underline;
+// }
+
+/* [aria-label]:hover {
+  background-color: #6d6d6d;
+  transition-duration: 300ms;
+} */

@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo node version `node -v`
+      - echo node version `npm -v`
+      - npm install
+  pre_build:
+    commands:
+      - touch .env
+      - echo "NEXT_PUBLIC_SERVICE_DOMAIN=${NEXT_PUBLIC_SERVICE_DOMAIN}" >> .env
+      - echo "NEXT_PUBLIC_API_KEY=${NEXT_PUBLIC_API_KEY}" >> .env
+      - echo "BLOG_DOMAIN=${BLOG_DOMAIN}" >> .env
+      # - less .env
+  build:
+    commands:
+      - echo Build started
+      - npm run build
+      - echo build completed
+  post_build:
+    commands:
+      - echo Copy Open Graph Image to S3 ...
+      - aws s3 cp ./og-images s3://${S3_SOURCE_BUCKET_NAME}/og-images --recursive --include "*.png"
+      - echo post_build completed
