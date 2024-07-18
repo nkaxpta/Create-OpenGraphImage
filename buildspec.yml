@@ -21,5 +21,5 @@ phases:
   post_build:
     commands:
       - echo Copy Open Graph Image to S3 ...
-      - aws s3 cp ./og-images s3://${S3_SOURCE_BUCKET_NAME}/og-images --recursive --include "*.png"
+      - aws s3 cp ./og-images s3://${S3_SOURCE_BUCKET_NAME}/og-images --recursive --include "*.png" --exclude ".gitkeep"
       - echo post_build completed
