@@ -7,10 +7,10 @@ export const writeOgpImage = async (title: string, id: string) => {
   // ディレクトリが存在しなければ作成する
   //   if (!fs.existsSync(id)) fs.mkdirSync(path);
   const image = await generateOgpImage(title);
-  fs.writeFileSync(`og-images/${id}.png`, image);
+  fs.writeFileSync(`og-images/${id}.png`, new Uint8Array(image));
 };
 
-const generateOgpImage = async (title: string) => {
+const generateOgpImage = async (title: string): Promise<Buffer> => {
   const fontMedium = fs.readFileSync("public/font/NotoSansJP-Regular.ttf");
   const fontBold = fs.readFileSync("public/font/NotoSansJP-Bold.ttf");
 
@@ -79,5 +79,5 @@ const generateOgpImage = async (title: string) => {
     }
   );
 
-  return await sharp(Buffer.from(svg)).png().toBuffer();
+  return sharp(Buffer.from(svg)).png().toBuffer();
 };

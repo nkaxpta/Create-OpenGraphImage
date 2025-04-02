@@ -12,6 +12,8 @@ phases:
       - echo "NEXT_PUBLIC_SERVICE_DOMAIN=${NEXT_PUBLIC_SERVICE_DOMAIN}" >> .env
       - echo "NEXT_PUBLIC_API_KEY=${NEXT_PUBLIC_API_KEY}" >> .env
       - echo "BLOG_DOMAIN=${BLOG_DOMAIN}" >> .env
+      - echo "BLOG_TITLE=${BLOG_TITLE} >> .env"
+      - echo "PROFILE_IMAGE_URL=${PROFILE_IMAGE_URL} >> .env"
       # - less .env
   build:
     commands:
